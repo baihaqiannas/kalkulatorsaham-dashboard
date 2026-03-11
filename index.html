@@ -840,6 +840,26 @@ footer {
           </div>
 
           <div class="mdesc-item" onclick="toggleDesc(this)">
+            <div class="mdesc-hd"><span class="mdesc-dot" style="background:var(--cyan)"></span><span class="mdesc-name">Fibonacci Rebound Strength</span><span class="mdesc-arrow">▼</span></div>
+            <div class="mdesc-body">Teknik Fibonacci <strong>terbalik</strong> — ditarik dari <strong>Low ke High</strong> untuk mengukur seberapa dalam koreksi harga dan menilai kekuatan potensi rebound. Alih-alih mencari support saat koreksi, tool ini menjawab pertanyaan: <em>"apakah candle ini cukup kuat untuk melanjutkan trend naik?"</em>
+            <br><br>Masukkan harga saat ini untuk mendapatkan analisis posisi candle secara real-time: di zona mana koreksi terjadi (23.6%–38.2% = sangat kuat, 38.2%–50% = normal, 50%–61.8% = kritis, di bawah 61.8% = lemah), kedalaman koreksi dari puncak, verdict kekuatan rebound (Sangat Kuat / Kuat / Moderat / Lemah / Sangat Lemah), dan peta zona visual dengan canvas chart interaktif. Volume opsional bisa ditambahkan sebagai konfirmasi tambahan.</div>
+          </div>
+
+          <div class="mdesc-item" onclick="toggleDesc(this)">
+            <div class="mdesc-hd"><span class="mdesc-dot" style="background:var(--cyan)"></span><span class="mdesc-name">Fibonacci Extension</span><span class="mdesc-arrow">▼</span></div>
+            <div class="mdesc-body">Proyeksi harga menggunakan teknik <strong>3 titik: A (Low 1) → B (High 1) → C (Low 2)</strong>. Fungsinya memproyeksikan seberapa jauh harga bisa naik setelah rebound dari Low 2, berdasarkan panjang impulse pertama (A→B).
+            <br><br>Formula: <code>Target = C + (B − A) × Rasio</code>. Menghasilkan 6 level target: <strong>127.2%</strong> (TP konservatif), <strong>161.8%</strong> (Golden Extension — target utama), <strong>200%</strong> (agresif), <strong>261.8%</strong> (swing panjang), <strong>423.6%</strong> dan <strong>685.4%</strong> (mode extended untuk trending kuat). Dilengkapi analisis rasio retracement C terhadap A→B, posisi harga saat ini vs level extension, dan visualisasi canvas lengkap dengan titik A/B/C dan semua target extension.</div>
+          </div>
+
+          <div class="mdesc-item" onclick="toggleDesc(this)">
+            <div class="mdesc-hd"><span class="mdesc-dot" style="background:var(--cyan)"></span><span class="mdesc-name">Fibonacci Konfirmasi Rebound</span><span class="mdesc-arrow">▼</span></div>
+            <div class="mdesc-body">Tool spesifik untuk menjawab satu pertanyaan kritis: <em>"apakah rebound yang sedang terjadi ini sungguhan atau palsu?"</em>
+            <br><br>Cara kerjanya: Fibonacci ditarik dari <strong>High ke Low</strong> (arah turun). Setelah harga rebound dari Low, pantau apakah candle rebound berhasil <strong>menutup (close) di atas</strong> level-level Fibonacci secara berurutan. Setiap level yang berhasil ditembus dan ditutup di atasnya merupakan "rintangan seller" yang berhasil diserap oleh buyer.
+            <br><br>Sistem verdict bertingkat: <span style="color:var(--red)">Gagal (di bawah 38.2%)</span> → rebound palsu, lanjut turun. <span style="color:var(--orange)">Lemah (38.2%–50%)</span> → rebound ada tapi tidak meyakinkan. <span style="color:var(--yellow)">Moderat (50%–61.8%)</span> → cukup valid, pantau candle berikutnya. <span style="color:var(--green)">Kuat (61.8%–78.6%)</span> → konfirmasi valid, high probability lanjut naik. <span style="color:var(--green)">Sangat Kuat (di atas 78.6%)</span> → rebound hampir pasti berlanjut.
+            <br><br>Mendukung analisis <strong>multi-candle</strong> (hingga 3 candle sekaligus) untuk melihat progres rebound dari waktu ke waktu, perbandingan volume rebound vs volume candle turun, dan proyeksi skenario lanjutan.</div>
+          </div>
+
+          <div class="mdesc-item" onclick="toggleDesc(this)">
             <div class="mdesc-hd"><span class="mdesc-dot" style="background:var(--magenta)"></span><span class="mdesc-name">Pivot Point</span><span class="mdesc-arrow">▼</span></div>
             <div class="mdesc-body">Menghitung level support dan resistance dinamis berdasarkan data candle sebelumnya (High, Low, Close). Tersedia 4 metode: <strong>Classic</strong> (standar umum), <strong>Woodie</strong> (menekankan close & open), <strong>Camarilla</strong> (presisi intraday), dan <strong>Fibonacci Pivot</strong>. Mendukung timeframe harian, mingguan, dan bulanan. Dilengkapi peta harga visual dan analisis bias bullish/bearish.</div>
           </div>
@@ -961,6 +981,52 @@ footer {
                 <div class="tut-step"><span class="tut-num">5</span><span>Kombinasikan dengan konfirmasi candlestick atau indikator lain sebelum entry.</span></div>
               </div>
               <div class="tut-tip">💡 Contoh: Saham naik dari Rp 1.200 (Low) ke Rp 1.800 (High). Fibonacci akan menunjukkan zona retracement wajar di sekitar Rp 1.430–1.570.</div>
+            </div>
+          </div>
+
+          <div class="mdesc-item" onclick="toggleDesc(this)">
+            <div class="mdesc-hd"><span class="mdesc-dot" style="background:var(--cyan)"></span><span class="mdesc-name">Cara Pakai: Fibonacci Rebound Strength</span><span class="mdesc-arrow">▼</span></div>
+            <div class="mdesc-body">
+              <div class="tut-steps">
+                <div class="tut-step"><span class="tut-num">1</span><span>Identifikasi <strong>Swing Low</strong> — titik terendah sebelum harga naik (awal impulse naik).</span></div>
+                <div class="tut-step"><span class="tut-num">2</span><span>Identifikasi <strong>Swing High</strong> — titik tertinggi yang dicapai harga setelah naik (puncak impulse).</span></div>
+                <div class="tut-step"><span class="tut-num">3</span><span>Masukkan <strong>Harga Saat Ini</strong> atau harga close candle yang sedang dianalisis.</span></div>
+                <div class="tut-step"><span class="tut-num">4</span><span>Klik <strong>ANALISIS KEKUATAN REBOUND</strong>. Lihat di zona mana harga saat ini berada.</span></div>
+                <div class="tut-step"><span class="tut-num">5</span><span>Baca verdict: <span style="color:var(--green)">Sangat Kuat</span> jika koreksi di 23–38%, <span style="color:var(--yellow)">Kuat</span> di 38–50%, <span style="color:var(--orange)">Moderat</span> di 50–61.8%, <span style="color:var(--red)">Lemah</span> di bawah 61.8%.</span></div>
+                <div class="tut-step"><span class="tut-num">6</span><span><strong>Opsional:</strong> Isi volume untuk konfirmasi tambahan — volume besar di zona support = sinyal rebound lebih valid.</span></div>
+              </div>
+              <div class="tut-tip">💡 Use case: Saham sebelumnya naik dari 1.000 ke 1.600, lalu koreksi ke 1.350. Apakah ini zona beli yang aman? Masukkan Low=1.000, High=1.600, Current=1.350. Tool akan hitung bahwa koreksi sudah ~41.7% — masih di zona sehat (38.2%–50%), verdict: KUAT untuk rebound.</div>
+            </div>
+          </div>
+
+          <div class="mdesc-item" onclick="toggleDesc(this)">
+            <div class="mdesc-hd"><span class="mdesc-dot" style="background:var(--cyan)"></span><span class="mdesc-name">Cara Pakai: Fibonacci Extension</span><span class="mdesc-arrow">▼</span></div>
+            <div class="mdesc-body">
+              <div class="tut-steps">
+                <div class="tut-step"><span class="tut-num">1</span><span>Tentukan <strong>Titik A (Low 1)</strong> — harga terendah sebelum kenaikan pertama dimulai.</span></div>
+                <div class="tut-step"><span class="tut-num">2</span><span>Tentukan <strong>Titik B (High 1)</strong> — harga tertinggi dari kenaikan pertama (puncak impulse 1).</span></div>
+                <div class="tut-step"><span class="tut-num">3</span><span>Tentukan <strong>Titik C (Low 2)</strong> — harga terendah setelah koreksi dari B (akhir pullback). C harus lebih tinggi dari A untuk setup valid.</span></div>
+                <div class="tut-step"><span class="tut-num">4</span><span>Opsional: isi <strong>Harga Saat Ini</strong> untuk melihat sudah sejauh mana harga vs target extension.</span></div>
+                <div class="tut-step"><span class="tut-num">5</span><span>Klik <strong>HITUNG FIBONACCI EXTENSION</strong>. Fokus pada level <strong>161.8%</strong> sebagai target utama.</span></div>
+                <div class="tut-step"><span class="tut-num">6</span><span>Ambil partial profit di <strong>127.2%</strong>, hold sisa untuk <strong>161.8%</strong>. Jika momentum kuat, target <strong>200%</strong> atau <strong>261.8%</strong> bisa dikejar.</span></div>
+              </div>
+              <div class="tut-tip">💡 Contoh: A=1.000, B=1.500, C=1.300. Range impulse = 500. Extension 161.8% = 1.300 + (500 × 1.618) = <strong>Rp 2.109</strong>. Extension 127.2% = 1.300 + (500 × 1.272) = <strong>Rp 1.936</strong> (TP pertama).</div>
+            </div>
+          </div>
+
+          <div class="mdesc-item" onclick="toggleDesc(this)">
+            <div class="mdesc-hd"><span class="mdesc-dot" style="background:var(--cyan)"></span><span class="mdesc-name">Cara Pakai: Fibonacci Konfirmasi Rebound</span><span class="mdesc-arrow">▼</span></div>
+            <div class="mdesc-body">
+              <div class="tut-steps">
+                <div class="tut-step"><span class="tut-num">1</span><span>Identifikasi <strong>High terbaru</strong> sebelum harga turun — misal puncak candle jam 10.00. Masukkan di kolom HIGH.</span></div>
+                <div class="tut-step"><span class="tut-num">2</span><span>Identifikasi <strong>Low</strong> — titik terendah setelah penurunan terjadi, misal candle jam 10.30. Masukkan di kolom LOW.</span></div>
+                <div class="tut-step"><span class="tut-num">3</span><span>Tunggu rebound mulai terjadi dari area Low. Masukkan <strong>harga close candle pertama</strong> yang rebound di kolom Candle 1.</span></div>
+                <div class="tut-step"><span class="tut-num">4</span><span>Jika ingin tracking multi-candle, isi Candle 2 dan Candle 3 untuk melihat progres rebound dari waktu ke waktu.</span></div>
+                <div class="tut-step"><span class="tut-num">5</span><span>Baca verdict utama: <span style="color:var(--red)">GAGAL</span> jika close di bawah 38.2%, <span style="color:var(--orange)">LEMAH</span> di 38.2–50%, <span style="color:var(--yellow)">MODERAT</span> di 50–61.8%, <span style="color:var(--green)">KUAT</span> di 61.8–78.6%, <span style="color:var(--green)">SANGAT KUAT</span> di atas 78.6%.</span></div>
+                <div class="tut-step"><span class="tut-num">6</span><span>Opsional: masukkan <strong>volume rebound</strong> dan <strong>volume candle turun sebelumnya</strong> untuk konfirmasi tambahan — volume rebound lebih besar = sinyal lebih valid.</span></div>
+                <div class="tut-step"><span class="tut-num">7</span><span>Baca bagian <strong>SKENARIO SELANJUTNYA</strong> untuk panduan action: hold, tambah posisi, atau waspada pembalikan.</span></div>
+              </div>
+              <div class="tut-tip">💡 Contoh: High=1.800, Low=1.400. Range=400. Level 38.2% = 1.553, 50% = 1.600, 61.8% = 1.647. Candle rebound close di 1.660 → tembus 61.8% → verdict KUAT, konfirmasi rebound valid, setup entry scalping/swing menarik.</div>
             </div>
           </div>
 
@@ -1218,6 +1284,353 @@ footer {
           <div class="fib-levels" id="fibLvl"></div>
           <div class="info-box" style="margin-top:14px">
             <strong style="color:var(--cyan)">Cara Baca:</strong> Level 61.8% & 38.2% adalah zona retracement kuat. Jika harga memantul dari level ini, bisa jadi sinyal entry.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ FIBONACCI REBOUND STRENGTH ════ -->
+  <div class="calc-section">
+    <button class="acc-btn" data-color="cyan" onclick="toggleAcc('frb',this)">
+      <div class="acc-left">
+        <div class="acc-hex" style="background:var(--cyan)"></div>
+        FIBONACCI REBOUND STRENGTH
+        <span class="acc-tag">ANALISIS</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </button>
+    <div class="acc-body" id="frb">
+      <div class="panel">
+        <div class="info-box" style="margin-bottom:16px">
+          💡 <strong style="color:var(--cyan)">Teknik:</strong> Tarik Fibonacci dari <strong>Low → High</strong> (terbalik dari biasanya). Fungsinya mengukur seberapa dalam koreksi harga — semakin dangkal, semakin kuat potensi rebound. Cocok untuk menilai kekuatan candle dalam mempertahankan trend naik.
+        </div>
+        <div class="form-grid form-grid-2">
+          <div class="fg" style="color:var(--cyan)">
+            <label>▸ SWING LOW (Titik Awal Naik)</label>
+            <input class="inp" type="number" id="frbLow" placeholder="Contoh: 1200" step="any">
+            <span class="hint">Harga terendah sebelum impulse naik</span>
+          </div>
+          <div class="fg" style="color:var(--cyan)">
+            <label>▸ SWING HIGH (Puncak Kenaikan)</label>
+            <input class="inp" type="number" id="frbHigh" placeholder="Contoh: 1800" step="any">
+            <span class="hint">Harga tertinggi setelah impulse naik</span>
+          </div>
+        </div>
+        <div class="form-grid form-grid-2" style="margin-bottom:16px">
+          <div class="fg" style="color:var(--yellow)">
+            <label>▸ HARGA SAAT INI / CANDLE CLOSE (Rp)</label>
+            <input class="inp" type="number" id="frbCurrent" placeholder="Contoh: 1550" step="any">
+            <span class="hint">Untuk mengetahui posisi candle saat ini</span>
+          </div>
+          <div class="fg" style="color:var(--cyan)">
+            <label>▸ VOLUME CANDLE SAAT INI <span style="opacity:.5">opsional</span></label>
+            <input class="inp" type="number" id="frbVol" placeholder="Contoh: 15000000" step="any">
+            <span class="hint">Volume tinggi = konfirmasi lebih kuat</span>
+          </div>
+        </div>
+        <button class="sub-btn" onclick="calcFRB()">▶ &nbsp; ANALISIS KEKUATAN REBOUND</button>
+
+        <div class="result-box" id="frbRes">
+          <div class="result-header" style="color:var(--cyan)">◈ LEVEL FIBONACCI (Low → High)</div>
+
+          <!-- Level table -->
+          <div class="fib-levels" id="frbLvl"></div>
+
+          <!-- Current position analysis -->
+          <div id="frbPositionBox" style="margin-top:16px;display:none">
+            <div class="result-header" style="color:var(--yellow);font-size:9px">◈ ANALISIS POSISI CANDLE SAAT INI</div>
+            <div class="stat-grid stat-grid-3">
+              <div class="stat-card" style="color:var(--yellow)">
+                <div class="stat-label">POSISI DI ZONA</div>
+                <div class="stat-value" id="frbZone" style="font-size:14px">—</div>
+                <div class="stat-sub" id="frbZoneSub">—</div>
+              </div>
+              <div class="stat-card" style="color:var(--cyan)">
+                <div class="stat-label">KEDALAMAN KOREKSI</div>
+                <div class="stat-value" id="frbDepth">—</div>
+                <div class="stat-sub">Dari puncak High</div>
+              </div>
+              <div class="stat-card" style="color:var(--green)">
+                <div class="stat-label">KEKUATAN REBOUND</div>
+                <div class="stat-value" id="frbStrength">—</div>
+                <div class="stat-sub" id="frbStrengthSub">—</div>
+              </div>
+            </div>
+
+            <!-- Signal verdict -->
+            <div id="frbVerdict" style="margin-top:12px"></div>
+
+            <!-- Rebound zones visual -->
+            <div style="margin-top:14px;background:rgba(0,0,0,.4);padding:16px;border:1px solid rgba(0,245,255,.08)">
+              <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--cyan);opacity:.6;letter-spacing:3px;margin-bottom:10px">◈ PETA ZONA REBOUND</div>
+              <canvas id="frbCanvas" height="140" style="width:100%;display:block"></canvas>
+              <div id="frbLegend" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-family:'Share Tech Mono',monospace;font-size:9px;opacity:.5"></div>
+            </div>
+          </div>
+
+          <div class="info-box" style="margin-top:12px">
+            <strong style="color:var(--cyan)">Interpretasi Zona:</strong> <span style="color:var(--green)">23.6%–38.2%</span> = koreksi ringan, trend naik sangat kuat. <span style="color:var(--yellow)">38.2%–50%</span> = koreksi normal, masih sehat. <span style="color:var(--orange)">50%–61.8%</span> = zona kritis, pantau konfirmasi. <span style="color:var(--red)">61.8%–78.6%</span> = koreksi dalam, butuh konfirmasi kuat. <span style="color:var(--red)">Bawah 78.6%</span> = trend naik berpotensi gagal.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ FIBONACCI KONFIRMASI REBOUND ════ -->
+  <div class="calc-section">
+    <button class="acc-btn" data-color="cyan" onclick="toggleAcc('fkr',this)">
+      <div class="acc-left">
+        <div class="acc-hex" style="background:var(--cyan)"></div>
+        FIBONACCI KONFIRMASI REBOUND
+        <span class="acc-tag">KONFIRMASI</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </button>
+    <div class="acc-body" id="fkr">
+      <div class="panel">
+
+        <div class="info-box" style="margin-bottom:18px">
+          💡 <strong style="color:var(--cyan)">Cara Kerja:</strong> Tarik Fibonacci dari <strong>High → Low</strong> (turun). Setelah terjadi rebound dari Low, pantau apakah candle rebound berhasil <strong>menutup di atas</strong> level-level Fibonacci. Semakin tinggi level yang ditembus, semakin kuat konfirmasi reboundnya.
+        </div>
+
+        <!-- Timeline visual hint -->
+        <div style="background:rgba(0,0,0,.35);border:1px solid rgba(0,245,255,.1);padding:14px 18px;margin-bottom:18px;font-family:'Share Tech Mono',monospace;font-size:10px">
+          <div style="color:var(--cyan);font-size:9px;letter-spacing:3px;margin-bottom:10px">◈ TIMELINE ANALISIS</div>
+          <div style="display:flex;align-items:center;gap:0;position:relative">
+            <div style="text-align:center;flex:1">
+              <div style="width:12px;height:12px;background:var(--red);border-radius:50%;margin:0 auto 4px"></div>
+              <div style="color:var(--red);font-size:9px">HIGH</div>
+              <div style="opacity:.4;font-size:8px">Puncak sebelum<br>turun</div>
+            </div>
+            <div style="flex:2;height:2px;background:linear-gradient(90deg,var(--red),var(--orange));opacity:.4"></div>
+            <div style="text-align:center;flex:1">
+              <div style="width:12px;height:12px;background:var(--orange);border-radius:50%;margin:0 auto 4px"></div>
+              <div style="color:var(--orange);font-size:9px">LOW</div>
+              <div style="opacity:.4;font-size:8px">Titik terendah<br>setelah turun</div>
+            </div>
+            <div style="flex:2;height:2px;background:linear-gradient(90deg,var(--orange),var(--green));opacity:.4"></div>
+            <div style="text-align:center;flex:1">
+              <div style="width:12px;height:12px;background:var(--green);border-radius:50%;margin:0 auto 4px"></div>
+              <div style="color:var(--green);font-size:9px">REBOUND</div>
+              <div style="opacity:.4;font-size:8px">Candle mulai<br>naik dari Low</div>
+            </div>
+            <div style="flex:2;height:2px;background:linear-gradient(90deg,var(--green),var(--yellow));opacity:.4"></div>
+            <div style="text-align:center;flex:1">
+              <div style="width:12px;height:12px;background:var(--yellow);border-radius:2%;margin:0 auto 4px"></div>
+              <div style="color:var(--yellow);font-size:9px">CLOSE</div>
+              <div style="opacity:.4;font-size:8px">Candle close<br>di mana?</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid form-grid-2">
+          <div class="fg" style="color:var(--red)">
+            <label>▸ HIGH — Harga Puncak (Rp)</label>
+            <input class="inp" type="number" id="fkrHigh" placeholder="Contoh: 1800" step="any">
+            <span class="hint">Puncak sebelum harga turun</span>
+          </div>
+          <div class="fg" style="color:var(--orange)">
+            <label>▸ LOW — Harga Terendah (Rp)</label>
+            <input class="inp" type="number" id="fkrLow" placeholder="Contoh: 1400" step="any">
+            <span class="hint">Titik terendah sebelum rebound terjadi</span>
+          </div>
+        </div>
+
+        <!-- Multi-candle rebound tracking -->
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2px;margin:14px 0 8px;opacity:.7">▸ HARGA CLOSE CANDLE REBOUND</div>
+        <div id="fkrCandleRows">
+          <div class="form-grid form-grid-3" style="margin-bottom:8px" id="fkrCandle0">
+            <div class="fg" style="color:var(--green)">
+              <label>CANDLE 1 — Close (Rp)</label>
+              <input class="inp" type="number" id="fkr_c0" placeholder="Candle rebound pertama" step="any">
+            </div>
+            <div class="fg" style="color:var(--green)">
+              <label>CANDLE 2 — Close (Rp) <span style="opacity:.4">opsional</span></label>
+              <input class="inp" type="number" id="fkr_c1" placeholder="Candle kedua" step="any">
+            </div>
+            <div class="fg" style="color:var(--green)">
+              <label>CANDLE 3 — Close (Rp) <span style="opacity:.4">opsional</span></label>
+              <input class="inp" type="number" id="fkr_c2" placeholder="Candle ketiga" step="any">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid form-grid-2" style="margin-bottom:16px">
+          <div class="fg" style="color:var(--yellow)">
+            <label>▸ VOLUME CANDLE REBOUND <span style="opacity:.4">opsional</span></label>
+            <input class="inp" type="number" id="fkrVol" placeholder="Contoh: 25000000" step="any">
+            <span class="hint">Volume besar = sinyal lebih kuat</span>
+          </div>
+          <div class="fg" style="color:var(--cyan)">
+            <label>▸ VOLUME CANDLE TURUN SEBELUMNYA <span style="opacity:.4">opsional</span></label>
+            <input class="inp" type="number" id="fkrVolPrev" placeholder="Contoh: 12000000" step="any">
+            <span class="hint">Untuk bandingkan kekuatan relatif</span>
+          </div>
+        </div>
+
+        <button class="sub-btn" onclick="calcFKR()">▶ &nbsp; CEK KONFIRMASI REBOUND</button>
+
+        <div class="result-box" id="fkrRes">
+          <div class="result-header" style="color:var(--cyan)">◈ LEVEL FIBONACCI HIGH → LOW</div>
+
+          <!-- Fib levels display -->
+          <div class="fib-levels" id="fkrLvl"></div>
+
+          <!-- Main verdict card -->
+          <div id="fkrVerdictMain" style="margin-top:18px"></div>
+
+          <!-- Multi-candle progression -->
+          <div id="fkrProgression" style="margin-top:14px;display:none">
+            <div class="result-header" style="color:var(--yellow);font-size:9px">◈ PROGRES PER CANDLE</div>
+            <div id="fkrProgressGrid"></div>
+          </div>
+
+          <!-- Volume confirmation -->
+          <div id="fkrVolBox" style="margin-top:12px;display:none"></div>
+
+          <!-- Visual chart -->
+          <div style="margin-top:14px;background:rgba(0,0,0,.4);padding:16px;border:1px solid rgba(0,245,255,.08)">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--cyan);opacity:.6;letter-spacing:3px;margin-bottom:10px">◈ PETA KONFIRMASI FIBONACCI</div>
+            <canvas id="fkrCanvas" height="180" style="width:100%;display:block"></canvas>
+          </div>
+
+          <!-- Scenario: what happens next -->
+          <div id="fkrNextBox" style="margin-top:14px"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ FIBONACCI EXTENSION ════ -->
+  <div class="calc-section">
+    <button class="acc-btn" data-color="cyan" onclick="toggleAcc('fext',this)">
+      <div class="acc-left">
+        <div class="acc-hex" style="background:var(--cyan)"></div>
+        FIBONACCI EXTENSION
+        <span class="acc-tag">TARGET HARGA</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    </button>
+    <div class="acc-body" id="fext">
+      <div class="panel">
+        <div class="info-box" style="margin-bottom:16px">
+          💡 <strong style="color:var(--cyan)">Teknik 3-Titik:</strong> Gunakan <strong>Low 1 → High 1 → Low 2</strong> untuk memproyeksikan seberapa jauh harga bisa naik setelah rebound dari Low 2. Level extension 161.8% adalah target paling populer di kalangan trader profesional.
+        </div>
+        <!-- Visual diagram ABC -->
+        <div style="background:rgba(0,0,0,.35);border:1px solid rgba(0,245,255,.1);padding:14px 18px;margin-bottom:18px;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-dim)">
+          <div style="color:var(--cyan);font-size:9px;letter-spacing:3px;margin-bottom:10px">◈ DIAGRAM PENARIKAN 3 TITIK</div>
+          <div style="display:flex;align-items:flex-end;gap:0;height:70px;position:relative;padding:0 10px">
+            <!-- Simple ASCII-like chart -->
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+              <div style="width:2px;height:40px;background:var(--cyan);opacity:.5"></div>
+              <div style="color:var(--green);font-size:9px">A</div>
+              <div style="opacity:.5;font-size:8px">LOW 1</div>
+            </div>
+            <div style="flex:2;height:2px;background:linear-gradient(90deg,var(--cyan),var(--yellow));opacity:.4;align-self:flex-start;margin-top:0"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;margin-bottom:40px">
+              <div style="color:var(--yellow);font-size:9px">B</div>
+              <div style="opacity:.5;font-size:8px">HIGH 1</div>
+              <div style="width:2px;height:40px;background:var(--yellow);opacity:.5"></div>
+            </div>
+            <div style="flex:2;height:2px;background:linear-gradient(90deg,var(--yellow),var(--magenta));opacity:.4;align-self:center"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+              <div style="width:2px;height:25px;background:var(--magenta);opacity:.5"></div>
+              <div style="color:var(--magenta);font-size:9px">C</div>
+              <div style="opacity:.5;font-size:8px">LOW 2</div>
+            </div>
+            <div style="flex:2;height:2px;background:linear-gradient(90deg,var(--magenta),var(--green));opacity:.4;align-self:flex-start;margin-top:10px"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;margin-bottom:55px">
+              <div style="color:var(--green);font-size:9px">TARGET</div>
+              <div style="opacity:.5;font-size:8px">EXTENSION</div>
+              <div style="width:2px;height:55px;background:var(--green);opacity:.4"></div>
+            </div>
+          </div>
+          <div style="color:var(--text-dim);font-size:9px;opacity:.6;margin-top:4px">Formula: Target = C + (B − A) × Rasio Extension</div>
+        </div>
+
+        <div class="form-grid form-grid-3">
+          <div class="fg" style="color:var(--green)">
+            <label>▸ TITIK A — LOW 1 (Rp)</label>
+            <input class="inp" type="number" id="fextA" placeholder="Contoh: 1000" step="any">
+            <span class="hint">Awal impulse naik pertama</span>
+          </div>
+          <div class="fg" style="color:var(--yellow)">
+            <label>▸ TITIK B — HIGH 1 (Rp)</label>
+            <input class="inp" type="number" id="fextB" placeholder="Contoh: 1500" step="any">
+            <span class="hint">Puncak impulse naik pertama</span>
+          </div>
+          <div class="fg" style="color:var(--magenta)">
+            <label>▸ TITIK C — LOW 2 (Rp)</label>
+            <input class="inp" type="number" id="fextC" placeholder="Contoh: 1300" step="any">
+            <span class="hint">Akhir koreksi / pullback</span>
+          </div>
+        </div>
+        <div class="form-grid form-grid-2" style="margin-bottom:16px">
+          <div class="fg" style="color:var(--cyan)">
+            <label>▸ HARGA SAAT INI (Rp) <span style="opacity:.5">opsional</span></label>
+            <input class="inp" type="number" id="fextCurrent" placeholder="Untuk lihat posisi saat ini" step="any">
+          </div>
+          <div class="fg" style="color:var(--cyan)">
+            <label>▸ MODE TAMPILAN</label>
+            <select class="inp-select" id="fextMode">
+              <option value="standard">Standard (127.2% s/d 261.8%)</option>
+              <option value="extended">Extended (termasuk 423.6% & 685.4%)</option>
+            </select>
+          </div>
+        </div>
+        <button class="sub-btn" onclick="calcFExt()">▶ &nbsp; HITUNG FIBONACCI EXTENSION</button>
+
+        <div class="result-box" id="fextRes">
+          <div class="result-header" style="color:var(--cyan)">◈ TARGET EXTENSION</div>
+
+          <!-- Summary titik ABC -->
+          <div class="stat-grid stat-grid-3" style="margin-bottom:14px">
+            <div class="stat-card" style="color:var(--green)">
+              <div class="stat-label">TITIK A — LOW 1</div>
+              <div class="stat-value" id="fextAVal">—</div>
+              <div class="stat-sub">Awal impulse</div>
+            </div>
+            <div class="stat-card" style="color:var(--yellow)">
+              <div class="stat-label">TITIK B — HIGH 1</div>
+              <div class="stat-value" id="fextBVal">—</div>
+              <div class="stat-sub" id="fextBSub">—</div>
+            </div>
+            <div class="stat-card" style="color:var(--magenta)">
+              <div class="stat-label">TITIK C — LOW 2</div>
+              <div class="stat-value" id="fextCVal">—</div>
+              <div class="stat-sub" id="fextCSub">—</div>
+            </div>
+          </div>
+
+          <!-- Extension levels -->
+          <div class="fib-levels" id="fextLvl"></div>
+
+          <!-- Current position on extension -->
+          <div id="fextCurrentBox" style="margin-top:14px;display:none">
+            <div class="stat-grid stat-grid-2">
+              <div class="stat-card" style="color:var(--cyan)">
+                <div class="stat-label">POSISI SAAT INI</div>
+                <div class="stat-value" id="fextCurrentZone" style="font-size:13px">—</div>
+                <div class="stat-sub" id="fextCurrentSub">—</div>
+              </div>
+              <div class="stat-card" style="color:var(--green)">
+                <div class="stat-label">TARGET TERDEKAT</div>
+                <div class="stat-value" id="fextNextTarget">—</div>
+                <div class="stat-sub" id="fextNextSub">—</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual chart -->
+          <div style="margin-top:14px;background:rgba(0,0,0,.4);padding:16px;border:1px solid rgba(0,245,255,.1)">
+            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--cyan);opacity:.6;letter-spacing:3px;margin-bottom:10px">◈ VISUALISASI TARGET EXTENSION</div>
+            <canvas id="fextCanvas" height="200" style="width:100%;display:block"></canvas>
+          </div>
+
+          <div class="info-box" style="margin-top:12px">
+            <strong style="color:var(--cyan)">Prioritas Level:</strong> <span style="color:var(--green)">127.2%</span> = TP konservatif pertama. <span style="color:var(--yellow)">161.8%</span> = target utama (Golden Extension), paling sering tercapai. <span style="color:var(--orange)">200%</span> = target agresif. <span style="color:var(--magenta)">261.8%</span> = target swing/trend panjang. Partial profit di 127.2% dan 161.8% adalah strategi optimal.
           </div>
         </div>
       </div>
@@ -4236,6 +4649,9 @@ document.addEventListener('keydown', e => {
   const tag = document.activeElement?.tagName || '';
   if (tag === 'TEXTAREA' || tag === 'SELECT') return;
   if (id.startsWith('fH')||id.startsWith('fL'))  calcFib();
+  else if (id.startsWith('frb'))  calcFRB();
+  else if (id.startsWith('fkr'))  calcFKR();
+  else if (id.startsWith('fext')) calcFExt();
   else if (id.startsWith('pp'))   calcPP();
   else if (id.startsWith('ma'))   calcMA();
   else if (id.startsWith('atr'))  calcATR();
@@ -4252,6 +4668,774 @@ document.addEventListener('keydown', e => {
   else if (id.startsWith('st'))   calcSLTP();
   else if (id.startsWith('mm'))   calcMM();
 });
+
+// ─────────────────────────────────────────────
+// FIBONACCI KONFIRMASI REBOUND
+// ─────────────────────────────────────────────
+// URUTAN CANDLE: C1 = paling lama (pertama rebound dari Low)
+//                C2 = setelah C1 (lebih baru)
+//                C3 = terbaru (candle yang sedang / baru close)
+// VERDICT UTAMA selalu menggunakan CANDLE TERBARU yang diisi.
+function calcFKR() {
+  const high    = parseFloat(document.getElementById('fkrHigh').value);
+  const low     = parseFloat(document.getElementById('fkrLow').value);
+  const vol     = parseFloat(document.getElementById('fkrVol').value);
+  const volPrev = parseFloat(document.getElementById('fkrVolPrev').value);
+
+  if (isNaN(high) || isNaN(low) || high <= low) {
+    flashInvalid(['fkrHigh','fkrLow']); return;
+  }
+
+  const c0 = parseFloat(document.getElementById('fkr_c0').value);
+  if (isNaN(c0) || c0 <= 0) { flashInvalid(['fkr_c0']); return; }
+
+  const c1 = parseFloat(document.getElementById('fkr_c1').value);
+  const c2 = parseFloat(document.getElementById('fkr_c2').value);
+  // Build chronological array — C1 oldest, last entry = newest (verdict candle)
+  const candles = [c0, ...(!isNaN(c1) && c1>0 ? [c1] : []), ...(!isNaN(c2) && c2>0 ? [c2] : [])];
+  // VERDICT is always based on the LAST (newest) candle
+  const verdictCandle = candles[candles.length - 1];
+
+  const range = high - low;
+
+  // Fibonacci levels drawn High→Low
+  // Level 0% = High, Level 100% = Low
+  // Price of each level = high - (range × ratio)
+  const fibDefs = [
+    { pct: 0,    ratio: 0,     label: '0%',    color: 'rgba(255,255,255,.2)', note: 'High — titik awal turun' },
+    { pct: 23.6, ratio: 0.236, label: '23.6%', color: 'var(--red)',    note: 'Resistance lemah' },
+    { pct: 38.2, ratio: 0.382, label: '38.2%', color: 'var(--orange)', note: 'Batas minimum rebound valid' },
+    { pct: 50,   ratio: 0.5,   label: '50%',   color: 'var(--yellow)', note: 'Zona pertarungan utama' },
+    { pct: 61.8, ratio: 0.618, label: '61.8%', color: 'var(--green)',  note: 'Golden zone — konfirmasi kuat' },
+    { pct: 78.6, ratio: 0.786, label: '78.6%', color: 'var(--cyan)',   note: 'Rebound sangat dominan' },
+    { pct: 100,  ratio: 1,     label: '100%',  color: 'rgba(255,255,255,.2)', note: 'Low — titik rebound' },
+  ];
+
+  // Price of each level (counting up from Low)
+  fibDefs.forEach(f => { f.price = high - range * f.ratio; });
+
+  // Render fib levels
+  const container = document.getElementById('fkrLvl');
+  container.innerHTML = '';
+  fibDefs.forEach(f => {
+    const barW = f.ratio === 0 ? 2 : (1 - f.ratio) * 95 + 2;
+    const div  = document.createElement('div');
+    div.className = 'fib-row';
+    // Highlight if candle 1 is in this zone
+    const c0Ratio = (high - verdictCandle) / range;
+    const isActive = f.ratio < c0Ratio && (fibDefs[fibDefs.indexOf(f)+1]?.ratio ?? 999) >= c0Ratio;
+    if (isActive) div.style.cssText = 'background:rgba(0,245,255,.07);border-left:3px solid var(--cyan);padding-left:6px';
+    div.innerHTML = `
+      <div class="fib-pct" style="color:${f.color}">${f.label}</div>
+      <div class="fib-bar-wrap">
+        <div class="fib-bar" style="width:${barW}%;background:${f.color}"></div>
+      </div>
+      <div class="fib-price" style="color:${f.color}">${rp(f.price)}</div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:${f.color};opacity:.5;margin-left:8px;flex-shrink:0">${f.note}</div>
+    `;
+    container.appendChild(div);
+  });
+
+  // Helper: get verdict for a candle close price
+  function getVerdict(closePrice) {
+    const posFromLow  = closePrice - low;   // how far above Low
+    const posRatio    = posFromLow / range; // 0=at Low, 1=at High
+    // Find which zone (0%=Low, 100%=High — but our fib is drawn H→L so 100%=Low)
+    // Rebound % = posRatio × 100 (how much of the H→L range it recovered)
+    const reboundPct = posRatio * 100;
+
+    let level, levelColor, strength, strengthColor, verdict, action, nextTarget, nextTargetPrice;
+
+    if (closePrice >= high) {
+      level='Melampaui HIGH'; levelColor='var(--green)';
+      strength='LUAR BIASA 🚀🚀'; strengthColor='var(--green)';
+      verdict='Candle melampaui titik High! Rebound total dan sempurna. Momentum sangat kuat. Ini bukan sekadar rebound — ini breakout penuh.';
+      action='STRONG BUY — Bisa entry agresif. Gunakan High lama sebagai support baru. Target: Fibonacci Extension dari setup ini.';
+      nextTarget='—'; nextTargetPrice=null;
+    } else if (closePrice >= fibDefs[5].price) { // above 78.6%
+      level='Di atas 78.6%'; levelColor='var(--cyan)';
+      strength='SANGAT KUAT ⚡⚡'; strengthColor='var(--cyan)';
+      verdict='Candle berhasil close di atas 78.6%! Buyer sangat dominan. Hampir seluruh penurunan terrecovery dalam satu candle. Rebound berlanjut hampir pasti.';
+      action='BUY — Entry dengan SL di bawah Low. Target minimal kembali ke High (100% recovery).';
+      nextTarget='High (100%)'; nextTargetPrice=high;
+    } else if (closePrice >= fibDefs[4].price) { // above 61.8%
+      level='Di atas 61.8%'; levelColor='var(--green)';
+      strength='KUAT ✅'; strengthColor='var(--green)';
+      verdict='Candle close di atas 61.8% (Golden Zone). Ini konfirmasi rebound yang valid dan kuat. Buyer berhasil menembus rintangan seller di Golden Ratio. Probabilitas lanjut naik tinggi.';
+      action='BUY — Entry di candle berikutnya atau on pullback ke 61.8%. SL di bawah Low. Target 78.6% lalu High.';
+      nextTarget='Level 78.6%'; nextTargetPrice=fibDefs[5].price;
+    } else if (closePrice >= fibDefs[3].price) { // above 50%
+      level='Di antara 50%–61.8%'; levelColor='var(--yellow)';
+      strength='MODERAT ⚠️'; strengthColor='var(--yellow)';
+      verdict='Candle close antara 50%–61.8%. Rebound ada dan cukup signifikan, tapi belum menembus Golden Zone. Pertarungan buyer vs seller masih ketat di area ini.';
+      action='WAIT — Pantau candle berikutnya. Jika candle selanjutnya berhasil close di atas 61.8%, baru entry. Jika berbalik turun dari sini, hindari.';
+      nextTarget='Level 61.8%'; nextTargetPrice=fibDefs[4].price;
+    } else if (closePrice >= fibDefs[2].price) { // above 38.2%
+      level='Di antara 38.2%–50%'; levelColor='var(--orange)';
+      strength='LEMAH 🔶'; strengthColor='var(--orange)';
+      verdict='Candle close antara 38.2%–50%. Rebound terjadi tapi lemah. Seller masih dominan. Belum ada konfirmasi valid untuk lanjut naik.';
+      action='HINDARI ENTRY — Tunggu konfirmasi lebih lanjut. Jika berbalik turun dari sini, kemungkinan lanjut ke Low baru.';
+      nextTarget='Level 50%'; nextTargetPrice=fibDefs[3].price;
+    } else if (closePrice >= fibDefs[1].price) { // above 23.6%
+      level='Di antara 23.6%–38.2%'; levelColor='var(--red)';
+      strength='SANGAT LEMAH 🔴'; strengthColor='var(--red)';
+      verdict='Candle close antara 23.6%–38.2%. Rebound sangat lemah, hanya technical bounce minor. Seller masih sangat dominan.';
+      action='JANGAN ENTRY — Ini hampir pasti dead cat bounce. Jika berbalik turun, siap-siap harga lanjut turun melebihi Low sebelumnya.';
+      nextTarget='Level 38.2%'; nextTargetPrice=fibDefs[2].price;
+    } else { // below 23.6%
+      level='Di bawah 23.6%'; levelColor='var(--red)';
+      strength='GAGAL ❌'; strengthColor='var(--red)';
+      verdict='Rebound GAGAL. Candle tidak mampu menembus level Fibonacci pertama (23.6%). Seller masih dominan penuh. Ini bukan rebound — harga sedang konsolidasi sebelum lanjut turun.';
+      action='JANGAN MASUK — Waspadai lanjutan penurunan. Pantau apakah Low sebelumnya akan ditembus. Jika Low ditembus, trend turun sangat kuat.';
+      nextTarget='Low (gagal)'; nextTargetPrice=low;
+    }
+
+    return { reboundPct, level, levelColor, strength, strengthColor, verdict, action, nextTarget, nextTargetPrice };
+  }
+
+  // Main verdict uses the NEWEST (last) candle
+  const v0 = getVerdict(verdictCandle);
+  const verdictCandleLabel = candles.length === 1 ? 'CANDLE 1' : candles.length === 2 ? 'CANDLE 2 (TERBARU)' : 'CANDLE 3 (TERBARU)';
+  const verdictCandleNum = candles.length;
+
+  document.getElementById('fkrVerdictMain').innerHTML = `
+    <div style="background:rgba(0,0,0,.5);border:2px solid ${v0.strengthColor};padding:20px;margin-bottom:4px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:${v0.levelColor};letter-spacing:2px">◈ POSISI CANDLE REBOUND</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:8px;background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.25);padding:3px 8px;color:var(--cyan);letter-spacing:1px">VERDICT DARI: ${verdictCandleLabel} — ${rp(verdictCandle)}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Orbitron',monospace;font-size:22px;font-weight:900;color:${v0.strengthColor};line-height:1">${v0.strength}</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:${v0.levelColor};margin-top:4px">${v0.level}</div>
+        </div>
+        <div style="flex:1;min-width:160px">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;opacity:.5;letter-spacing:1px">RECOVERY DARI LOW</div>
+          <div style="font-family:'Orbitron',monospace;font-size:18px;color:${v0.strengthColor}">${num(v0.reboundPct,1)}%</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;opacity:.5">Close: ${rp(verdictCandle)}</div>
+        </div>
+      </div>
+      <!-- Recovery gauge -->
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Share Tech Mono',monospace;font-size:8px;opacity:.45;letter-spacing:2px;margin-bottom:5px">RECOVERY GAUGE — BERDASARKAN ${verdictCandleLabel}</div>
+        <div style="height:12px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden;position:relative">
+          ${['23.6','38.2','50','61.8','78.6'].map(p=>
+            `<div style="position:absolute;left:${p}%;top:0;width:1px;height:100%;background:rgba(255,255,255,.2)"></div>`
+          ).join('')}
+          <div id="fkrGaugeFill" style="height:100%;width:0%;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green));border-radius:6px;transition:width 1s cubic-bezier(.4,0,.2,1)"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:8px;opacity:.35;margin-top:3px">
+          <span>LOW 0%</span><span>23.6</span><span>38.2</span><span>50</span><span>61.8</span><span>78.6</span><span>HIGH 100%</span>
+        </div>
+      </div>
+      <div style="font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:12px">${v0.verdict}</div>
+      <div style="background:rgba(0,0,0,.4);border-left:3px solid ${v0.strengthColor};padding:10px 14px;font-family:'Share Tech Mono',monospace;font-size:10px;color:${v0.strengthColor}">
+        ▶ ${v0.action}
+      </div>
+      ${v0.nextTargetPrice ? `
+      <div style="margin-top:10px;display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;background:rgba(0,0,0,.3);padding:10px;text-align:center">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:8px;opacity:.45;letter-spacing:2px">TARGET BERIKUTNYA</div>
+          <div style="font-family:'Orbitron',monospace;font-size:15px;color:var(--yellow);margin-top:4px">${rp(v0.nextTargetPrice)}</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;opacity:.5;margin-top:2px">${v0.nextTarget} — jarak ${rp(v0.nextTargetPrice - verdictCandle)}</div>
+        </div>
+        <div style="flex:1;background:rgba(0,0,0,.3);padding:10px;text-align:center">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:8px;opacity:.45;letter-spacing:2px">SL REFERENCE</div>
+          <div style="font-family:'Orbitron',monospace;font-size:15px;color:var(--red);margin-top:4px">${rp(low)}</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:9px;opacity:.5;margin-top:2px">Di bawah Low — risiko ${rp(verdictCandle - low)}</div>
+        </div>
+      </div>` : ''}
+    </div>
+  `;
+
+  // Animate gauge
+  setTimeout(() => {
+    const fill = document.getElementById('fkrGaugeFill');
+    if (fill) fill.style.width = Math.min(v0.reboundPct, 100) + '%';
+  }, 80);
+
+  // Multi-candle progression
+  const progBox = document.getElementById('fkrProgression');
+  // Always show progression section (even 1 candle), so user understands the order
+  progBox.style.display = 'block';
+  const grid = document.getElementById('fkrProgressGrid');
+  grid.innerHTML = '';
+
+  // Add chronological header note
+  const headerNote = document.createElement('div');
+  headerNote.style.cssText = 'font-family:"Share Tech Mono",monospace;font-size:9px;color:rgba(184,222,255,.4);letter-spacing:1px;margin-bottom:8px;padding:6px 10px;background:rgba(0,245,255,.04);border-left:2px solid rgba(0,245,255,.2)';
+  headerNote.innerHTML = '← CANDLE 1 = PALING LAMA &nbsp;&nbsp;|&nbsp;&nbsp; CANDLE TERAKHIR = TERBARU (DASAR VERDICT) →';
+  grid.appendChild(headerNote);
+
+  const cardWrap = document.createElement('div');
+  cardWrap.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);gap:8px';
+  candles.forEach((c, i) => {
+    const v       = getVerdict(c);
+    const prev    = i > 0 ? getVerdict(candles[i-1]) : null;
+    const isNewest = i === candles.length - 1;
+    const trend   = prev
+      ? (c > candles[i-1] ? '↑ NAIK' : c < candles[i-1] ? '↓ TURUN' : '→ FLAT')
+      : '—';
+    const trendColor = prev
+      ? (c > candles[i-1] ? 'var(--green)' : c < candles[i-1] ? 'var(--red)' : 'var(--yellow)')
+      : 'rgba(255,255,255,.3)';
+    const div = document.createElement('div');
+    div.className = 'stat-card';
+    div.style.cssText = `color:${v.strengthColor};${isNewest ? 'border:1.5px solid '+v.strengthColor+';box-shadow:0 0 10px '+v.strengthColor+'33' : ''}`;
+    div.innerHTML = `
+      ${isNewest ? `<div style="font-family:'Share Tech Mono',monospace;font-size:7px;color:${v.strengthColor};letter-spacing:2px;margin-bottom:4px">★ TERBARU / VERDICT</div>` : `<div style="font-family:'Share Tech Mono',monospace;font-size:7px;opacity:.35;letter-spacing:2px;margin-bottom:4px">CANDLE ${i+1}${i===0?' (PERTAMA)':''}</div>`}
+      <div class="stat-value" style="font-size:11px">${v.strength.split(' ').slice(0,-1).join(' ')}</div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:11px;margin:5px 0;color:rgba(255,255,255,.8)">${rp(c)}</div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:9px;opacity:.65">${num(v.reboundPct,1)}% recovery</div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:${trendColor};margin-top:5px">${trend}</div>
+    `;
+    cardWrap.appendChild(div);
+  });
+  grid.appendChild(cardWrap);
+
+  // Volume analysis
+  const volBox = document.getElementById('fkrVolBox');
+  if (!isNaN(vol) && vol > 0) {
+    volBox.style.display = 'block';
+    let volMsg, volColor;
+    if (!isNaN(volPrev) && volPrev > 0) {
+      const ratio = vol / volPrev;
+      if (ratio >= 2)       { volMsg=`Volume rebound <strong style="color:var(--green)">${num(ratio,1)}× lebih besar</strong> dari candle turun — konfirmasi buyer SANGAT kuat. Sinyal rebound premium.`; volColor='var(--green)'; }
+      else if (ratio >= 1.2){ volMsg=`Volume rebound <strong style="color:var(--green)">${num(ratio,1)}× lebih besar</strong> dari candle turun — buyer lebih aktif, konfirmasi valid.`; volColor='var(--green)'; }
+      else if (ratio >= 0.8){ volMsg=`Volume rebound <strong style="color:var(--yellow)">sebanding</strong> dengan candle turun (${num(ratio,1)}×) — pertarungan seimbang, pantau candle berikutnya.`; volColor='var(--yellow)'; }
+      else                   { volMsg=`Volume rebound <strong style="color:var(--red)">lebih kecil</strong> dari candle turun (${num(ratio,1)}×) — seller masih dominan meski harga naik. Waspada false breakout.`; volColor='var(--red)'; }
+    } else {
+      volMsg = `Volume rebound: <strong style="color:var(--cyan)">${num(vol/1e6,2)}M</strong>. Masukkan volume candle turun sebelumnya untuk perbandingan relatif.`;
+      volColor = 'var(--cyan)';
+    }
+    volBox.innerHTML = `<div class="info-box" style="border-color:${volColor}20"><strong style="color:${volColor}">◈ KONFIRMASI VOLUME:</strong> ${volMsg}</div>`;
+  } else {
+    volBox.style.display = 'none';
+  }
+
+  // Canvas chart
+  setTimeout(() => {
+    const canvas = document.getElementById('fkrCanvas');
+    if (!canvas) return;
+    const W = canvas.offsetWidth || 700;
+    const H = 180;
+    canvas.width  = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    ctx.clearRect(0, 0, W, H);
+
+    const padL = 14, padR = 80, padT = 16, padB = 16;
+    const cW   = W - padL - padR;
+    const cH   = H - padT - padB;
+    const minP = low * 0.997, maxP = high * 1.003;
+    const toY  = v => padT + cH - ((v - minP) / (maxP - minP)) * cH;
+
+    // Background zone fills — colored regions between fib levels
+    const zoneFills = [
+      { lo: fibDefs[6].price, hi: fibDefs[5].price, c: 'rgba(0,245,255,0.06)'  }, // 78.6–100%
+      { lo: fibDefs[5].price, hi: fibDefs[4].price, c: 'rgba(0,255,136,0.08)'  }, // 61.8–78.6%
+      { lo: fibDefs[4].price, hi: fibDefs[3].price, c: 'rgba(255,238,0,0.07)'  }, // 50–61.8%
+      { lo: fibDefs[3].price, hi: fibDefs[2].price, c: 'rgba(255,102,0,0.07)'  }, // 38.2–50%
+      { lo: fibDefs[2].price, hi: fibDefs[1].price, c: 'rgba(255,51,85,0.08)'  }, // 23.6–38.2%
+      { lo: fibDefs[1].price, hi: fibDefs[0].price, c: 'rgba(255,51,85,0.13)'  }, // 0–23.6%
+    ];
+    zoneFills.forEach(z => {
+      ctx.fillStyle = z.c;
+      ctx.fillRect(padL, toY(z.hi), cW, toY(z.lo) - toY(z.hi));
+    });
+
+    // Fib level lines + labels on right
+    fibDefs.forEach(f => {
+      if (f.ratio === 0 || f.ratio === 1) return;
+      const y = toY(f.price);
+      ctx.strokeStyle = f.color; ctx.lineWidth = f.ratio === 0.618 ? 1.5 : 0.8;
+      ctx.globalAlpha = f.ratio === 0.618 ? 0.9 : 0.5;
+      ctx.setLineDash(f.ratio === 0.618 ? [] : [5, 4]);
+      ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR + 2, y); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      // Right label
+      ctx.fillStyle = f.color; ctx.textAlign = 'left';
+      ctx.font = `${f.ratio === 0.618 ? 9 : 8}px Share Tech Mono`;
+      ctx.fillText(`${f.label} ${rp(f.price)}`, W - padR + 5, y + 4);
+    });
+
+    // High and Low horizontal lines
+    ['high','low'].forEach(k => {
+      const price = k === 'high' ? high : low;
+      const col   = k === 'high' ? 'var(--red)' : 'rgba(255,255,255,.3)';
+      const y = toY(price);
+      ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.globalAlpha = 0.5;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W - padR + 2, y); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      ctx.fillStyle = col; ctx.textAlign = 'left'; ctx.font = '8px Share Tech Mono';
+      ctx.fillText(`${k.toUpperCase()} ${rp(price)}`, W - padR + 5, y + 4);
+    });
+
+    // Simulated price path: High → Low → rebound candles
+    const pathPts = [];
+    const totalPts = 2 + candles.length;
+    const xHigh = padL + cW * 0.12;
+    const xLow  = padL + cW * 0.38;
+    pathPts.push({ x: xHigh, y: toY(high), c: 'var(--red)' });
+    pathPts.push({ x: xLow,  y: toY(low),  c: 'var(--orange)' });
+    candles.forEach((c, i) => {
+      const isVerd = (i === candles.length - 1);
+      pathPts.push({ x: padL + cW * (0.38 + (i + 1) * 0.18), y: toY(c), c: getVerdict(c).strengthColor, isVerdict: isVerd });
+    });
+
+    // Draw path
+    ctx.beginPath(); ctx.strokeStyle = 'rgba(255,255,255,.3)'; ctx.lineWidth = 1.5;
+    pathPts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+    ctx.stroke();
+
+    // Draw points
+    const ptLabels = ['HIGH', 'LOW', ...candles.map((_,i) => `C${i+1}`)];
+    pathPts.forEach((p, i) => {
+      const isVerd = p.isVerdict;
+      const r = (i === 0 ? 5 : isVerd ? 9 : 6);
+      // Outer ring for verdict candle
+      if (isVerd) {
+        ctx.beginPath(); ctx.arc(p.x, p.y, r + 4, 0, Math.PI*2);
+        ctx.strokeStyle = p.c; ctx.lineWidth = 1.5; ctx.globalAlpha = 0.5;
+        ctx.stroke(); ctx.globalAlpha = 1;
+      }
+      ctx.fillStyle = p.c; ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#000'; ctx.font = `bold ${isVerd?8:7}px Share Tech Mono`; ctx.textAlign = 'center';
+      ctx.fillText(ptLabels[i], p.x, p.y + 3);
+      ctx.fillStyle = p.c; ctx.font = `${isVerd?9:8}px Share Tech Mono`;
+      ctx.fillText(rp(i === 0 ? high : i === 1 ? low : candles[i-2]), p.x, p.y + (i < 2 || candles[i-2] < (i === 0 ? high : low) ? 18 : -14));
+      if (isVerd) {
+        ctx.fillStyle = p.c; ctx.font = `bold 7px Share Tech Mono`;
+        ctx.fillText('★ VERDICT', p.x, p.y - r - 8);
+      }
+    });
+
+  }, 80);
+
+  // Next scenario box
+  const v0next = v0.nextTargetPrice;
+  const nextBox = document.getElementById('fkrNextBox');
+  const scenarioItems = fibDefs.filter(f => f.price > verdictCandle && f.ratio > 0 && f.ratio < 1).slice(0, 3);
+  if (scenarioItems.length) {
+    nextBox.innerHTML = `
+      <div class="result-header" style="color:var(--cyan);font-size:9px">◈ SKENARIO SELANJUTNYA — JIKA CANDLE BERIKUTNYA CLOSE DI ATAS</div>
+      <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);gap:8px">
+        ${scenarioItems.map(f => {
+          const dist = f.price - verdictCandle;
+          const distPct = (dist / verdictCandle) * 100;
+          return `<div class="stat-card" style="color:${f.color}">
+            <div class="stat-label">CLOSE DI ATAS ${f.label}</div>
+            <div class="stat-value" style="font-size:14px">${rp(f.price)}</div>
+            <div class="stat-sub">+${rp(dist).replace('Rp ','')} (+${num(distPct,2)}%)</div>
+            <div style="font-family:'Share Tech Mono',monospace;font-size:8px;margin-top:5px;opacity:.6">${f.note}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    `;
+  } else {
+    nextBox.innerHTML = `<div class="info-box"><strong style="color:var(--green)">✅ Candle sudah menembus level Fibonacci tertinggi (78.6%+).</strong> Pantau apakah harga mampu kembali ke High atau bahkan breakout.</div>`;
+  }
+
+  showResult('fkrRes');
+}
+
+// ─────────────────────────────────────────────
+// FIBONACCI REBOUND STRENGTH
+// ─────────────────────────────────────────────
+function calcFRB() {
+  const low     = parseFloat(document.getElementById('frbLow').value);
+  const high    = parseFloat(document.getElementById('frbHigh').value);
+  const current = parseFloat(document.getElementById('frbCurrent').value);
+  const vol     = parseFloat(document.getElementById('frbVol').value);
+
+  if (isNaN(low) || isNaN(high) || high <= low) {
+    flashInvalid(['frbLow','frbHigh']); return;
+  }
+
+  const range  = high - low;
+  // Low→High: level 0% = Low, level 100% = High
+  // When price is at, say, 61.8% level it means it has retraced 38.2% FROM the high
+  const levels = [
+    { pct: 0,     label: '0%',    color: '#555', note: 'Low asal' },
+    { pct: 23.6,  label: '23.6%', color: 'var(--green)',   note: 'Retracement sangat dangkal' },
+    { pct: 38.2,  label: '38.2%', color: 'var(--green)',   note: 'Retracement ringan' },
+    { pct: 50,    label: '50%',   color: 'var(--yellow)',  note: 'Retracement normal' },
+    { pct: 61.8,  label: '61.8%', color: 'var(--orange)',  note: 'Golden zone koreksi' },
+    { pct: 78.6,  label: '78.6%', color: 'var(--red)',     note: 'Koreksi dalam' },
+    { pct: 100,   label: '100%',  color: '#555', note: 'High puncak' },
+  ];
+
+  // Render fib level bars (same style as calcFib)
+  const container = document.getElementById('frbLvl');
+  container.innerHTML = '';
+  levels.forEach(lv => {
+    const price = low + range * (lv.pct / 100);
+    const barW  = lv.pct === 0 ? 2 : lv.pct;
+    const isHigh = lv.pct === 100;
+    const div = document.createElement('div');
+    div.className = 'fib-row';
+    div.innerHTML = `
+      <div class="fib-pct" style="color:${lv.color}">${lv.label}</div>
+      <div class="fib-bar-wrap">
+        <div class="fib-bar" style="width:${barW}%;background:${lv.color};opacity:${isHigh?'.3':'1'}"></div>
+      </div>
+      <div class="fib-price" style="color:${lv.color}">${rp(price)}</div>
+    `;
+    container.appendChild(div);
+  });
+
+  // Current position analysis
+  const posBox = document.getElementById('frbPositionBox');
+  if (!isNaN(current) && current > 0) {
+    posBox.style.display = 'block';
+
+    // How far price has retraced FROM the High
+    const retracePct = ((high - current) / range) * 100;
+    const positionPct = ((current - low) / range) * 100;  // how far from Low (0–100%)
+
+    // Determine zone
+    let zone, zoneColor, zoneSub, strength, strengthSub, verdictHTML;
+    if (current > high) {
+      zone='DI ATAS HIGH'; zoneColor='var(--green)'; zoneSub='Breakout! Harga melampaui puncak';
+      strength='BREAKOUT 🚀'; strengthSub='Trend naik sangat kuat, belum ada koreksi';
+      verdictHTML=`<div class="info-box"><strong style="color:var(--green)">🚀 BREAKOUT</strong> — Harga melampaui Swing High. Trend naik masih sangat kuat. Potensi lanjut naik tinggi. Gunakan Fibonacci Extension untuk target berikutnya.</div>`;
+    } else if (current < low) {
+      zone='DI BAWAH LOW'; zoneColor='var(--red)'; zoneSub='Breakdown! Harga jatuh di bawah Low';
+      strength='BREAKDOWN ❌'; strengthSub='Trend naik telah gagal total';
+      verdictHTML=`<div class="info-box danger"><strong style="color:var(--red)">❌ BREAKDOWN</strong> — Harga jatuh di bawah Swing Low. Trend naik telah gugur. Jangan averaging, evaluasi ulang posisi.</div>`;
+    } else if (retracePct <= 23.6) {
+      zone='0% – 23.6%'; zoneColor='var(--green)'; zoneSub='Hampir di puncak, koreksi minimal';
+      strength='SANGAT KUAT ⚡'; strengthSub='Koreksi sangat dangkal, bull dominan';
+      verdictHTML=`<div class="info-box"><strong style="color:var(--green)">⚡ SANGAT KUAT</strong> — Koreksi hanya ${num(retracePct,1)}% dari High. Bull masih dominan penuh. Momentum sangat kuat, potensi lanjut naik sangat tinggi. Bisa pertimbangkan add position jika ada konfirmasi candle.</div>`;
+    } else if (retracePct <= 38.2) {
+      zone='23.6% – 38.2%'; zoneColor='var(--green)'; zoneSub='Zona retracement sehat';
+      strength='KUAT ✅'; strengthSub='Koreksi wajar, trend naik terjaga';
+      verdictHTML=`<div class="info-box"><strong style="color:var(--green)">✅ KUAT</strong> — Koreksi ${num(retracePct,1)}% dari High. Ini zona retracement yang sehat. Trend naik masih terjaga dengan baik. Zona ini sering jadi area entry yang baik bagi swing trader.</div>`;
+    } else if (retracePct <= 50) {
+      zone='38.2% – 50%'; zoneColor='var(--yellow)'; zoneSub='Koreksi normal, perlu konfirmasi';
+      strength='MODERAT ⚠️'; strengthSub='Setengah perjalanan, tunggu konfirmasi';
+      verdictHTML=`<div class="info-box warn"><strong style="color:var(--yellow)">⚠️ MODERAT</strong> — Koreksi ${num(retracePct,1)}% dari High. Harga di zona pertarungan antara bull dan bear. Tunggu konfirmasi candle (hammer, doji reversal, bullish engulfing) sebelum entry. Jangan masuk tanpa sinyal yang jelas.</div>`;
+    } else if (retracePct <= 61.8) {
+      zone='50% – 61.8%'; zoneColor='var(--orange)'; zoneSub='Zona kritis Golden Ratio';
+      strength='LEMAH 🔶'; strengthSub='Koreksi dalam, hati-hati';
+      verdictHTML=`<div class="info-box warn"><strong style="color:var(--orange)">🔶 LEMAH</strong> — Koreksi ${num(retracePct,1)}% dari High. Mendekati Golden Zone 61.8%. Area ini bisa jadi support kuat, tapi juga bisa ditembus. Butuh konfirmasi volume dan candlestick reversal yang solid. Risiko lebih tinggi.</div>`;
+    } else if (retracePct <= 78.6) {
+      zone='61.8% – 78.6%'; zoneColor='var(--red)'; zoneSub='Koreksi dalam, trend terancam';
+      strength='SANGAT LEMAH 🔴'; strengthSub='Trend naik dalam bahaya';
+      verdictHTML=`<div class="info-box danger"><strong style="color:var(--red)">🔴 SANGAT LEMAH</strong> — Koreksi ${num(retracePct,1)}% dari High. Koreksi sudah sangat dalam. Trend naik mulai dipertanyakan. Sebaiknya wait and see. Entry hanya jika ada konfirmasi sangat kuat dari volume dan multi-timeframe.</div>`;
+    } else {
+      zone='78.6% – 100%'; zoneColor='var(--red)'; zoneSub='Hampir kembali ke Low';
+      strength='KRITIS 💀'; strengthSub='Trend naik hampir gagal total';
+      verdictHTML=`<div class="info-box danger"><strong style="color:var(--red)">💀 KRITIS</strong> — Koreksi ${num(retracePct,1)}% dari High. Harga hampir kembali ke titik awal. Trend naik hampir gagal total. Jangan averaging, hindari entry baru. Pertimbangkan cut loss jika sudah posisi.</div>`;
+    }
+
+    document.getElementById('frbZone').textContent       = zone;
+    document.getElementById('frbZone').style.color       = zoneColor;
+    document.getElementById('frbZoneSub').textContent    = zoneSub;
+    document.getElementById('frbDepth').textContent      = num(retracePct,2) + '%';
+    document.getElementById('frbDepth').style.color      = retracePct <= 38.2 ? 'var(--green)' : retracePct <= 50 ? 'var(--yellow)' : 'var(--red)';
+    document.getElementById('frbStrength').textContent   = strength;
+    document.getElementById('frbStrength').style.color   = zoneColor;
+    document.getElementById('frbStrengthSub').textContent= strengthSub + (!isNaN(vol) && vol > 0 ? ' | Vol: ' + num(vol/1e6,2) + 'M' : '');
+    document.getElementById('frbVerdict').innerHTML      = verdictHTML;
+
+    // Canvas chart — horizontal price ladder with zone coloring
+    setTimeout(() => {
+      const canvas = document.getElementById('frbCanvas');
+      if (!canvas) return;
+      const W = canvas.offsetWidth || 700;
+      const H = 140;
+      canvas.width  = W * devicePixelRatio;
+      canvas.height = H * devicePixelRatio;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+      ctx.clearRect(0, 0, W, H);
+
+      const pad = 60, chartW = W - pad * 2;
+      const allPrices = levels.map(lv => low + range * lv.pct / 100);
+      const minP = allPrices[0] * 0.998, maxP = allPrices[allPrices.length-1] * 1.002;
+      const toX = v => pad + ((v - minP) / (maxP - minP)) * chartW;
+
+      // Zone fills
+      const zoneColors = [
+        { from: 0, to: 23.6, c: 'rgba(0,255,136,0.07)' },
+        { from: 23.6, to: 38.2, c: 'rgba(0,255,136,0.12)' },
+        { from: 38.2, to: 50,   c: 'rgba(255,238,0,0.07)' },
+        { from: 50, to: 61.8,   c: 'rgba(255,102,0,0.09)' },
+        { from: 61.8, to: 78.6, c: 'rgba(255,51,85,0.10)' },
+        { from: 78.6, to: 100,  c: 'rgba(255,51,85,0.16)' },
+      ];
+      zoneColors.forEach(z => {
+        const x1 = toX(low + range * z.from / 100);
+        const x2 = toX(low + range * z.to / 100);
+        ctx.fillStyle = z.c;
+        ctx.fillRect(x1, 10, x2 - x1, H - 30);
+      });
+
+      // Level lines
+      levels.forEach(lv => {
+        const price = low + range * lv.pct / 100;
+        const x = toX(price);
+        ctx.strokeStyle = lv.color; ctx.lineWidth = lv.pct === 0 || lv.pct === 100 ? 1 : 1.5;
+        ctx.globalAlpha = lv.pct === 0 || lv.pct === 100 ? 0.25 : 0.7;
+        ctx.setLineDash(lv.pct % 50 === 0 ? [4,4] : []);
+        ctx.beginPath(); ctx.moveTo(x, 10); ctx.lineTo(x, H - 20); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = lv.color; ctx.font = `${9 * devicePixelRatio}px Share Tech Mono`;
+        ctx.textAlign = 'center';
+        ctx.fillText(lv.label, x, H - 6);
+      });
+
+      // Current price marker
+      if (!isNaN(current) && current >= minP && current <= maxP) {
+        const cx = toX(current);
+        ctx.fillStyle = '#fff'; ctx.globalAlpha = 1;
+        ctx.beginPath(); ctx.arc(cx, H/2, 7, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#000';
+        ctx.font = `bold ${8 * devicePixelRatio}px Share Tech Mono`;
+        ctx.fillText('▼', cx, H/2 - 14);
+        ctx.fillStyle = '#fff'; ctx.font = `${8 * devicePixelRatio}px Share Tech Mono`;
+        ctx.fillText(rp(current), cx, H/2 + 20);
+      }
+    }, 80);
+
+  } else {
+    posBox.style.display = 'none';
+  }
+
+  showResult('frbRes');
+}
+
+// ─────────────────────────────────────────────
+// FIBONACCI EXTENSION
+// ─────────────────────────────────────────────
+function calcFExt() {
+  const A       = parseFloat(document.getElementById('fextA').value);
+  const B       = parseFloat(document.getElementById('fextB').value);
+  const C       = parseFloat(document.getElementById('fextC').value);
+  const current = parseFloat(document.getElementById('fextCurrent').value);
+  const mode    = document.getElementById('fextMode').value;
+
+  if ([A, B, C].some(isNaN) || B <= A) { flashInvalid(['fextA','fextB','fextC']); return; }
+  if (C >= B) { flashInvalid(['fextC']); return; }
+
+  const impulse  = B - A;   // panjang gelombang pertama
+  const retrace  = B - C;   // seberapa dalam koreksi
+  const retracePct = (retrace / impulse) * 100;
+
+  // Populate ABC summary
+  document.getElementById('fextAVal').textContent = rp(A);
+  document.getElementById('fextBVal').textContent = rp(B);
+  document.getElementById('fextBSub').textContent = `+${num(((B-A)/A)*100,1)}% dari A`;
+  document.getElementById('fextCVal').textContent = rp(C);
+  document.getElementById('fextCSub').textContent = `Retracement ${num(retracePct,1)}% dari impulse A→B`;
+
+  // Extension ratios
+  const standardLevels = [
+    { ratio: 1.0,    label: '100%',   color: 'rgba(255,255,255,.25)', note: 'Setara panjang impulse pertama' },
+    { ratio: 1.272,  label: '127.2%', color: 'var(--cyan)',   note: 'TP Konservatif — target pertama' },
+    { ratio: 1.414,  label: '141.4%', color: 'var(--green)',  note: 'Harmonic extension' },
+    { ratio: 1.618,  label: '161.8%', color: 'var(--yellow)', note: '⭐ Golden Extension — target utama' },
+    { ratio: 2.0,    label: '200%',   color: 'var(--orange)', note: 'Target agresif' },
+    { ratio: 2.618,  label: '261.8%', color: 'var(--magenta)',note: 'Target swing / trend panjang' },
+  ];
+  const extendedExtra = [
+    { ratio: 3.618,  label: '361.8%', color: 'var(--red)',    note: 'Trend sangat kuat (jarang)' },
+    { ratio: 4.236,  label: '423.6%', color: 'var(--red)',    note: 'Fibonacci extension lanjut' },
+  ];
+  const levels = mode === 'extended' ? [...standardLevels, ...extendedExtra] : standardLevels;
+
+  // Render extension levels
+  const container = document.getElementById('fextLvl');
+  container.innerHTML = '';
+  const maxPrice  = levels[levels.length - 1].ratio * impulse + C;
+  const baseRange = maxPrice - C;
+  levels.forEach(lv => {
+    const price  = C + impulse * lv.ratio;
+    const barW   = Math.min(((price - C) / baseRange) * 95, 95);
+    const isGold = lv.ratio === 1.618;
+    const div = document.createElement('div');
+    div.className = 'fib-row';
+    if (isGold) div.style.cssText = 'background:rgba(255,238,0,.07);border:1px solid rgba(255,238,0,.2);border-radius:3px;padding:2px 0';
+    div.innerHTML = `
+      <div class="fib-pct" style="color:${lv.color};min-width:52px">${lv.label}</div>
+      <div class="fib-bar-wrap">
+        <div class="fib-bar" style="width:${barW}%;background:${lv.color}"></div>
+      </div>
+      <div class="fib-price" style="color:${lv.color}">${rp(price)}</div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:${lv.color};opacity:.55;margin-left:8px;flex-shrink:0;max-width:160px">${lv.note}</div>
+    `;
+    container.appendChild(div);
+  });
+
+  // Current position vs extension
+  const curBox = document.getElementById('fextCurrentBox');
+  if (!isNaN(current) && current > 0) {
+    curBox.style.display = 'block';
+
+    // Find which zone current price is in
+    let zoneTxt = '—', zoneSub = '—', nextTarget = '—', nextSub = '—';
+    if (current < C) {
+      zoneTxt = 'Di bawah C'; zoneSub = 'Belum mulai naik dari Low 2';
+    } else if (current < C + impulse * 1.0) {
+      zoneTxt = 'Antara C – 100%'; zoneSub = `Sudah naik ${num(((current-C)/impulse)*100,1)}% dari C`;
+    } else {
+      // Find which extension zone
+      for (let i = 0; i < levels.length - 1; i++) {
+        const lo = C + impulse * levels[i].ratio;
+        const hi = C + impulse * levels[i+1].ratio;
+        if (current >= lo && current < hi) {
+          zoneTxt = `${levels[i].label} – ${levels[i+1].label}`;
+          zoneSub = `Antara level ${levels[i].label} dan ${levels[i+1].label}`;
+          nextTarget = rp(hi); nextSub = `Level ${levels[i+1].label} — ${rp(hi - current)} lagi (+${num(((hi-current)/current)*100,1)}%)`;
+          break;
+        }
+      }
+      if (current >= C + impulse * levels[levels.length-1].ratio) {
+        zoneTxt = `Melampaui ${levels[levels.length-1].label}`;
+        zoneSub = 'Melampaui semua level extension — trend sangat kuat!';
+        nextTarget = '—'; nextSub = 'Pertimbangkan target Fibonacci lebih lanjut';
+      }
+    }
+
+    // Nearest next target (above current)
+    let nearest = null;
+    levels.forEach(lv => {
+      const p = C + impulse * lv.ratio;
+      if (p > current && (!nearest || p < nearest.p)) nearest = { p, lv };
+    });
+    if (nearest) {
+      nextTarget = rp(nearest.p);
+      nextSub = `Level ${nearest.lv.label} — jarak ${rp(nearest.p - current)} (+${num(((nearest.p-current)/current)*100,1)}%)`;
+    }
+
+    document.getElementById('fextCurrentZone').textContent = zoneTxt;
+    document.getElementById('fextCurrentSub').textContent  = zoneSub;
+    document.getElementById('fextNextTarget').textContent  = nextTarget;
+    document.getElementById('fextNextSub').textContent     = nextSub;
+  } else {
+    curBox.style.display = 'none';
+  }
+
+  // Canvas chart
+  setTimeout(() => {
+    const canvas = document.getElementById('fextCanvas');
+    if (!canvas) return;
+    const W = canvas.offsetWidth || 700;
+    const H = 200;
+    canvas.width  = W * devicePixelRatio;
+    canvas.height = H * devicePixelRatio;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    ctx.clearRect(0, 0, W, H);
+
+    // Price range for chart: A to highest extension
+    const extPrices = levels.map(lv => C + impulse * lv.ratio);
+    const allPts    = [A, B, C, ...extPrices, ...((!isNaN(current) && current > 0) ? [current] : [])];
+    const minP = Math.min(...allPts) * 0.97;
+    const maxP = Math.max(...allPts) * 1.02;
+    const padL = 14, padR = 14, padT = 20, padB = 20;
+    const cW   = W - padL - padR;
+    const cH   = H - padT - padB;
+    const toY  = v  => padT + cH - ((v - minP) / (maxP - minP)) * cH;
+    // X positions: A at 15%, B at 40%, C at 60%, extensions spread to 100%
+    const xA = padL + cW * 0.10;
+    const xB = padL + cW * 0.35;
+    const xC = padL + cW * 0.55;
+    const xExtStart = padL + cW * 0.62;
+    const xExtEnd   = padL + cW * 0.97;
+    const toXExt = ratio => xExtStart + ((ratio - 1.0) / (levels[levels.length-1].ratio - 1.0)) * (xExtEnd - xExtStart);
+
+    // Grid lines at each extension
+    levels.forEach(lv => {
+      const price = C + impulse * lv.ratio;
+      const y     = toY(price);
+      const x     = toXExt(lv.ratio);
+      ctx.strokeStyle = lv.color; ctx.lineWidth = lv.ratio === 1.618 ? 1.5 : 0.8;
+      ctx.globalAlpha = lv.ratio === 1.618 ? 0.8 : 0.35;
+      ctx.setLineDash(lv.ratio === 1.618 ? [] : [4, 4]);
+      ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, H - padB); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      // Price label
+      ctx.fillStyle = lv.color; ctx.textAlign = 'center';
+      ctx.font = `${lv.ratio === 1.618 ? 9 : 8}px Share Tech Mono`;
+      ctx.fillText(lv.label, x, padT - 6);
+    });
+
+    // Draw A→B impulse wave
+    ctx.strokeStyle = 'var(--green)'; ctx.lineWidth = 2.5; ctx.globalAlpha = 0.8;
+    ctx.beginPath(); ctx.moveTo(xA, toY(A)); ctx.lineTo(xB, toY(B)); ctx.stroke();
+
+    // Draw B→C correction
+    ctx.strokeStyle = 'var(--magenta)'; ctx.lineWidth = 2; ctx.globalAlpha = 0.7;
+    ctx.beginPath(); ctx.moveTo(xB, toY(B)); ctx.lineTo(xC, toY(C)); ctx.stroke();
+
+    // Draw C→extension projected wave (dashed to 161.8, then dotted)
+    levels.forEach((lv, i) => {
+      if (i === 0) return;
+      const pricePrev = C + impulse * levels[i-1].ratio;
+      const priceCurr = C + impulse * lv.ratio;
+      const xPrev = i === 1 ? xC : toXExt(levels[i-1].ratio);
+      const xCurr = toXExt(lv.ratio);
+      ctx.strokeStyle = lv.ratio <= 1.618 ? 'var(--yellow)' : 'var(--orange)';
+      ctx.lineWidth   = lv.ratio <= 1.618 ? 2 : 1.5;
+      ctx.setLineDash(lv.ratio > 1.618 ? [5, 4] : []);
+      ctx.globalAlpha = lv.ratio <= 2 ? 0.7 : 0.4;
+      ctx.beginPath(); ctx.moveTo(xPrev, toY(pricePrev)); ctx.lineTo(xCurr, toY(priceCurr)); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+    });
+
+    // Dots for A, B, C
+    const dotPts = [
+      { x: xA, y: toY(A), label: 'A', price: A, color: 'var(--green)' },
+      { x: xB, y: toY(B), label: 'B', price: B, color: 'var(--yellow)' },
+      { x: xC, y: toY(C), label: 'C', price: C, color: 'var(--magenta)' },
+    ];
+    dotPts.forEach(pt => {
+      ctx.fillStyle = pt.color; ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, 6, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#000';
+      ctx.font = `bold ${9}px Share Tech Mono`; ctx.textAlign = 'center';
+      ctx.fillText(pt.label, pt.x, pt.y + 4);
+      ctx.fillStyle = pt.color;
+      ctx.font = `${8}px Share Tech Mono`;
+      ctx.fillText(rp(pt.price), pt.x, pt.y + (pt.label === 'B' ? -12 : 18));
+    });
+
+    // Extension level dots
+    levels.forEach(lv => {
+      if (lv.ratio < 1.0) return;
+      const price = C + impulse * lv.ratio;
+      const x     = toXExt(lv.ratio);
+      const y     = toY(price);
+      ctx.fillStyle = lv.color; ctx.globalAlpha = lv.ratio === 1.618 ? 1 : 0.7;
+      ctx.beginPath(); ctx.arc(x, y, lv.ratio === 1.618 ? 5 : 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = lv.color; ctx.globalAlpha = 0.9;
+      ctx.font = `${8}px Share Tech Mono`; ctx.textAlign = 'left';
+      ctx.fillText(rp(price), x + 7, y + 4);
+      ctx.globalAlpha = 1;
+    });
+
+    // Current price line
+    if (!isNaN(current) && current > 0) {
+      const cy = toY(current);
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.globalAlpha = 0.6;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(padL, cy); ctx.lineTo(W - padR, cy); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      ctx.fillStyle = '#fff'; ctx.textAlign = 'right';
+      ctx.font = `bold ${8}px Share Tech Mono`;
+      ctx.fillText('NOW: ' + rp(current), W - padR - 2, cy - 5);
+    }
+
+  }, 80);
+
+  showResult('fextRes');
+}
 </script>
 </body>
 </html>
